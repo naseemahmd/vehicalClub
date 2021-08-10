@@ -1,0 +1,62 @@
+#lowerleft
+{
+    margin-bottom: 1px;
+    margin-left : 1px; 
+    color: green;
+    position: fixed;
+    right: 0;
+}
+
+#button {
+  margin-left : 2px; 
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  
+}
+
+#button:hover {
+  background-color: rgb(28, 189, 90);
+}
+#topic {
+    text-align: center;
+     font-size: 40px;
+     margin-top: 20px;
+    
+}
+#centerText {
+    margin-bottom: 150px;
+    margin-top : 150px; 
+    text-align: center;
+    font-size: 20px;
+}
+#centerText.h2{
+  font-size: 40px;
+}
+.btn-primary{
+
+  font-size: 36px;
+  position: absolute;
+  top: 60%;
+
+margin-left: 45%;
+}
+.btn-secondary{
+  font-size: 30px;
+}
+#Detailbutton:hover {
+  background-color: rgb(28, 189, 90);
+}
+
+body{
+
+  height: 100vh;
+width:100%;
+  background-position: center; 
+  background-repeat: no-repeat;
+}

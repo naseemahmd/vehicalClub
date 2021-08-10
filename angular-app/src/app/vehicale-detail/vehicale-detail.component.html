@@ -1,0 +1,130 @@
+<h1> Vehicle Details</h1>
+<form>
+  <div>
+    <label>Search by Model</label>
+    <input
+    change="onChangeEvent()"
+      #enteredValue
+      type="text"
+      placeholder="Enter the Model"
+    >
+  
+  <button
+    type="submit"
+    
+    (click)="search(enteredValue.value)"
+  >
+    Search
+  </button>
+</div>
+</form>
+<br />
+<div class="row">
+  <div class="span6" style="float: none; margin: 0 auto">
+    <nav aria-label="navigation">
+      <ul class="pagination">
+        <li class="page-item">
+          <a
+            class="page-link"
+            [routerLink]=""
+            (click)="changeOffset('-')"
+            >Previous</a
+          >
+        </li>
+      
+        <li class="page-item">
+          <a class="page-link" [routerLink]="" (click)="changeOffset('+')"
+            >Next</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<br />
+<body >
+  <table class="table">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Car Make</th>
+      <th>Car Model</th>
+      <th>Vin Number</th>
+      <th>Manufactured Date</th>
+      <th> Vehicle Age</th>
+    </tr>
+  </thead> 
+  <tbody>
+    <tr *ngFor="let vehicle_detail of vehicle_details" (click)="openModel(vehicle_detail.id, updatepopup)">
+      <td>{{ vehicle_detail.v_id }}</td>
+      <td>{{ vehicle_detail.first_name }}</td>
+      <td>{{ vehicle_detail.last_name }}</td>
+      <td>{{ vehicle_detail.email }}</td>
+      <td>{{ vehicle_detail.car_make }}</td>
+      <td>{{ vehicle_detail.car_model }}</td>
+      <td>{{ vehicle_detail.vin_number }}</td>
+      <td>{{ vehicle_detail.manufactured_date }}</td>
+      <td>{{ vehicle_detail.age_of_vehicle }}</td>
+    </tr>
+  </tbody> 
+</table>
+<br />
+<hr />
+
+
+<ng-template #updatepopup let-modal>
+  <div class="modal-header" id="update-pop-up'">
+    <h4 class="modal-title">Update or Delete</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div style="display:flex;flex-direction:column;justify-content:center;align-items:center">
+    <form [formGroup]='updateForm' >
+      <label>id :     
+        <input type="text" disabled value={{this.vahicalID}}>
+      </label>
+      <br />
+      <label>FirstName :     
+        <input type="text" formControlName="firstName">
+      </label>
+      <br />
+      <label>LastName :     
+        <input type="text" formControlName="lastName">
+      </label>
+      <br />
+      <label>Email :     
+        <input type="text" formControlName="email">
+      </label>
+    </form>
+   
+  </div>
+  <!-- <div class="modal-body">
+      <label>id :     
+        <input type="text" value={{selected.v_id}} disabled>
+      </label>
+      <br />
+      <label>FirstName :     
+        <input type="text" value={{selected.first_name}} >
+      </label>
+      <br />
+      <label>LastName :     
+        <input type="text" value={{selected.last_name}} >
+      </label>
+      <br />
+      <label>Email :     
+        <input type="text" value={{selected.email}}>
+      </label>
+
+  </div> -->
+  <div class="modal-footer">
+    <button type="sumbit" class="btn btn-outline-dark"(click)="updateVehical()" >Update</button>
+    <button type="button" class="btn btn-danger" (click)="deleteVahical()">Delete</button>
+
+  </div>
+</ng-template>
+
+</body>

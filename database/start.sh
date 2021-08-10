@@ -1,0 +1,1 @@
+postgraphile -c "postgres://postgres:123456@localhost:5432/autoMobile" --schema vehicals --watch

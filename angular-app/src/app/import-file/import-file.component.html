@@ -1,0 +1,28 @@
+<h3>Upload your file here</h3>
+
+
+<input type="file" class="file-input"
+       (change)="onFileSelected($event)" #fileUpload>
+
+<div class="custom-file-input" id="upload">
+
+   {{fileName || "No file uploaded yet."}}
+    <pre></pre>
+    <button mat-button color="primary" class="upload-btn"
+      (click)="fileUpload.click()">
+        <a>Attach_file</a>
+    </button>
+    <pre></pre>
+    <div><button
+      type="button"
+      class="btn btn-primary"
+      (click)="sendFileData()"
+    >
+      upload csv
+    </button>
+    </div>
+    
+</div>
+
+
+
